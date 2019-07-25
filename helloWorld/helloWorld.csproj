@@ -36,6 +36,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Maths\Calculate.cs" />
+    <Compile Include="Season.cs" />
+    <Compile Include="SpeedCamera.cs" />
+    <Compile Include="Exercise.cs" />
+    <Compile Include="Exercise2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Maths\" />

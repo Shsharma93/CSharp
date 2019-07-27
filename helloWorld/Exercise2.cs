@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace helloWorld
 {
@@ -7,7 +8,55 @@ namespace helloWorld
     {
         public void exerciseProblems()
         {
-            calculateLikes();
+            //calculateLikes();
+            //reverseName();
+            //uniqueNumber();
+        }
+
+
+        public static void uniqueNumber()
+        {
+            var isExit = false;
+            var numberList = new List<int>();
+            while(!isExit)
+            {
+                if (numberList.Count == 5)
+                    break;
+                Console.Write("Enter the number : ");
+                var number = Convert.ToInt32(Console.ReadLine());
+                bool isUnique = checkUniquness(number, numberList);
+                if(!isUnique)
+                {
+                    numberList.Add(number);
+                } else
+                {
+                    Console.WriteLine("Number repeated. Try Again!");
+                }
+            }
+            int[] newList = numberList.ToArray();
+
+            Array.Sort(newList);
+            foreach(int number in newList)
+            {
+                Console.WriteLine(number);
+            }
+        }
+
+        public static bool checkUniquness(int number,List<int> numberList)
+        {
+            
+            return numberList.Contains(number);
+        }
+
+
+        public static void reverseName()
+        {
+            Console.Write("Enter your name : ");
+            var name = Console.ReadLine();
+            var nameChar = name.ToCharArray();
+            Array.Reverse(nameChar);
+            var reverseName = new String(nameChar);
+            Console.WriteLine(reverseName);
         }
 
         public static void calculateLikes()

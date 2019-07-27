@@ -31,7 +31,21 @@ namespace helloWorld
             //exerciseSolutions();
             //arraysDemo();
             //listsDemo();
-            exercise2Solutions();
+            //exercise2Solutions();
+            dateTimeDemo();
+        }
+
+
+        public static void dateTimeDemo()
+        {
+            var dateTime = new DateTime(2015, 1, 1);
+            var now = DateTime.Now;
+            var today = DateTime.Today;
+            Console.WriteLine("Date Time : {0}", dateTime);
+            Console.WriteLine("Now - {0}", now.Hour);
+            Console.WriteLine("Now - {0}", now.AddDays(1));
+            Console.WriteLine("Today - {0}", today.DayOfYear);
+            Console.WriteLine(now.ToString("dd-MM-yyyy"));
         }
 
 

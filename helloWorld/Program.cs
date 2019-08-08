@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using helloWorld.Maths;
+using System.Text;
 
 namespace helloWorld
 {
@@ -32,7 +33,81 @@ namespace helloWorld
             //arraysDemo();
             //listsDemo();
             //exercise2Solutions();
-            dateTimeDemo();
+            //dateTimeDemo();
+            //stringsDemo();
+            //summarisingText();
+            stringBuilderDemo();
+        }
+
+        static void stringBuilderDemo()
+        {
+            var builder = new StringBuilder("Hello World..!!");
+            builder.Append('-', 10);
+            builder.AppendLine();
+            builder.Append("Header");
+            builder.AppendLine();
+            builder.Append('-', 10);
+            builder.Replace('-', '+');
+            builder.Remove(0,11);
+            builder.Insert(0, new String('-', 10));
+            Console.WriteLine(builder);
+            Console.WriteLine(builder[0]);
+        }
+
+        static void summarisingText()
+        {
+            const int maxLength = 20;
+            var sentence = "This is going to be a really really really long sentence.";
+
+            var summaryWords = new List<string>();
+            if (sentence.Length < maxLength)
+            {
+                Console.WriteLine(sentence);
+            }
+            else
+            {
+                var words = sentence.Split(' ');
+                var totalCharacters = 0;
+                foreach (var word in words)
+                {
+                    summaryWords.Add(word);
+                    totalCharacters += word.Length + 1;
+                    if (totalCharacters > maxLength)
+                    {
+                        break;
+                    }
+                }
+                var summary = String.Join(" ", summaryWords) + "...";
+                Console.WriteLine(summary);
+            }
+        }
+
+        public static void stringsDemo()
+        {
+            var fullName = "John Smith ";
+            Console.WriteLine("Trim : '{0}'", fullName.Trim());
+            Console.WriteLine("Trim : '{0}'", fullName.Trim().ToUpper());
+
+            var names = fullName.Split(' ');
+            Console.WriteLine("First Name : {0}", names[0]);
+            Console.WriteLine("Last Name : {0}", names[1]);
+
+            var newName = fullName.Replace("John", "Johnathan");
+            Console.WriteLine(newName);
+
+            if(String.IsNullOrWhiteSpace(" "))
+            {
+                Console.WriteLine("Invalid");
+            }
+
+            //string to number
+
+            var str = "2567";
+            var newStr = Convert.ToInt32(str);
+            Console.WriteLine("Number to String - {0}", newStr);
+
+            float price = 99.45f;
+            Console.WriteLine(price.ToString("C")); //C0 $100
         }
 
 
